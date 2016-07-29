@@ -51,7 +51,7 @@ void loop()
         //    Serial.println(CarCommand.indexOf(2),DEC) ;
         //    Serial.println(CarCommand.indexOf('L'),DEC) ;
         //    Serial.println(CarCommand.indexOf('K'),DEC) ;
-    if (CarCommand.indexOf(val) >0)
+    if (CarCommand.indexOf(val) >=0)
         {
           //  Serial.println(CarCommand.charAt(val)) ;
              BTCMD(val) ;     //執行車子命令
