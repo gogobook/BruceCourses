@@ -21,7 +21,7 @@
 #include <LiquidCrystal_I2C.h>
 
 // LCM1602 I2C LCD
-LiquidCrystal_I2C lcd(0x27, 2, 1, 0, 4, 5, 6, 7, 3, POSITIVE);  // Set the LCD I2C address
+ LiquidCrystal_I2C lcd(0x27, 2, 1, 0, 4, 5, 6, 7, 3, POSITIVE);  // 設定 LCD I2C 位址
 
 //LiquidCrystal_I2C lcd(0x38);  // Set the LCD I2C address
 
@@ -31,19 +31,16 @@ LiquidCrystal_I2C lcd(0x27, 2, 1, 0, 4, 5, 6, 7, 3, POSITIVE);  // Set the LCD I
 
 void setup()   /*----( SETUP: RUNS ONCE )----*/
 {
- lcd.backlight();
+  lcd.begin(16, 2);      // 初始化 LCD，一行 20 的字元，共 4 行，預設開啟背光
+  lcd.backlight(); // 開啟背光
 
   lcd.setCursor ( 0, 0 );        // go to home
   lcd.print("Hello World!");  
   lcd.setCursor ( 0, 1 );        // go to the next line
   lcd.print ("Ameba");
-  delay ( 8000 );
+  delay ( 2000 );
 
   lcd.clear();
-  lcd.setCursor( 0, 0 );
-  lcd.print("Type to display");
-  lcd.setCursor( 0, 1 );
-  lcd.print("On SerialMonitor");
 }// END Setup
 
 static int count=0;

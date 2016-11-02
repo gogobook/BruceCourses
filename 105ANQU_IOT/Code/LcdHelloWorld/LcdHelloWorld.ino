@@ -27,11 +27,12 @@ LiquidCrystal_I2C lcd(0x27, 2, 1, 0, 4, 5, 6, 7, 3, POSITIVE);  // Set the LCD I
 
 //LiquidCrystal_I2C lcd(0x38, BACKLIGHT_PIN, POSITIVE);  // Set the LCD I2C address
 
-
-
-void setup()   /*----( SETUP: RUNS ONCE )----*/
+void setup()
 {
- lcd.backlight();
+  Serial.begin(38400);
+
+  lcd.begin(16,2);               // initialize the lcd 
+  lcd.backlight();
 
   lcd.setCursor ( 0, 0 );        // go to home
   lcd.print("Hello World!");  
@@ -44,14 +45,15 @@ void setup()   /*----( SETUP: RUNS ONCE )----*/
   lcd.print("Type to display");
   lcd.setCursor( 0, 1 );
   lcd.print("On SerialMonitor");
-}// END Setup
+}
 
-static int count=0;
-void loop()   
+void loop()
 {
-  lcd.setCursor(0,1);
-  lcd.print("Realtek: ");
-  lcd.print(count++) ;
-  delay(1000);
-} // END Loop
-
+  if (Serial.available()) {
+    delay(100);
+    lcd.clear();
+    while (Serial.available() > 0) {
+      lcd.write(Serial.read());
+    }
+  }
+}
