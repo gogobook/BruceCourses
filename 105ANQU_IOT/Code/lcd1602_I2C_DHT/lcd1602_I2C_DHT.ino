@@ -22,7 +22,7 @@
 DHT dht(DHTPIN, DHTTYPE);
 
 // LCM1602 I2C LCD
- LiquidCrystal_I2C lcd(0x3F, 2, 1, 0, 4, 5, 6, 7, 3, POSITIVE);  // 設定 LCD I2C 位址
+ LiquidCrystal_I2C lcd(0x27, 2, 1, 0, 4, 5, 6, 7, 3, POSITIVE);  // 設定 LCD I2C 位址
 
 //LiquidCrystal_I2C lcd(0x38);  // Set the LCD I2C address
 
@@ -39,7 +39,7 @@ void setup()   /*----( SETUP: RUNS ONCE )----*/
   lcd.backlight(); // 開啟背光
   lcd.setCursor ( 0, 0 );        // go to home
     lcd.print("Smart & Health");  
-    delay(2000) ;
+    delay(2000) ;   //wait 2 seconds
 }// END Setup
 
 static int count=0;
@@ -55,11 +55,11 @@ void loop()
 
   lcd.setCursor(0,1);
   lcd.print("H:");
-  lcd.print(h) ;
+  lcd.print((int)h) ;
   lcd.print("% T:");
-  lcd.print(t) ;
-  lcd.print("C T:");
-  lcd.print(f) ;
+  lcd.print((int)t) ;
+  lcd.print("C ");
+  lcd.print((int)f) ;
   lcd.print("F");
   Serial.print("Humidity: ");
   Serial.print(h);
