@@ -51,11 +51,17 @@ void loop() {
               lcd.print(GreenValue);
              lcd.print("/");
               lcd.print(BlueValue);
+              Serial.print(RedValue);
+             Serial.print("/");
+              Serial.print(GreenValue);
+             Serial.print("/");
+              Serial.print(BlueValue);
+             Serial.print("\n");
 
            }
   }
 
-  
+    delay(300) ;
 }
 
 boolean DecodeString(String INPStr, byte *r, byte *g , byte *b) 
