@@ -1,7 +1,7 @@
 #include <WiFi.h>
 uint8_t MacData[6];
-char ssid[] = "PM25";      // your network SSID (name)
-char pass[] = "qq12345678";     // your network password
+char ssid[] = "D-School506_2.4GHz";      // your network SSID (name)
+char pass[] = "ntudschool";     // your network password
 
 
 IPAddress  Meip ,Megateway ,Mesubnet ;
@@ -9,17 +9,6 @@ String MacAddress ;
 int status = WL_IDLE_STATUS;
 
 
-void setup() {
-    MacAddress = GetWifiMac() ; // get MacAddress
-    ShowMac() ;       //Show Mac Address
- 
-        initializeWiFi();
-        printWifiData() ;
-}
-
-void loop() { // run over and over
-  
-}
 
 void ShowMac()
 {
@@ -154,4 +143,15 @@ void initializeWiFi() {
   
 }
 
+void setup() {
+    MacAddress = GetWifiMac() ; // get MacAddress
+    ShowMac() ;       //Show Mac Address
+ 
+        initializeWiFi();
+        printWifiData() ;
+}
+
+void loop() { // run over and over
+  
+}
 
