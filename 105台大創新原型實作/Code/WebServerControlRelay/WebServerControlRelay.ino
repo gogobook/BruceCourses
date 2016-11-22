@@ -1,7 +1,7 @@
 #include <WiFi.h>
 
-char ssid[] = "Apple_TC_Wi-Fi";      // your network SSID (name)
-char pass[] = "27541147";     // your network password
+char ssid[] = "NQU_IOT";      // your network SSID (name)
+char pass[] = "12345678";     // your network password
 int keyIndex = 0;                 // your network key Index number (needed only for WEP)
 
 int status = WL_IDLE_STATUS;

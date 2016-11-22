@@ -10,9 +10,8 @@ int status = WL_IDLE_STATUS;
 
 
 void setup() {
-    MacAddress = GetWifiMac() ; // get MacAddress
-    ShowMac() ;       //Show Mac Address
- 
+  MacAddress = GetWifiMac() ;
+    ShowMac() ;
         initializeWiFi();
         printWifiData() ;
 }

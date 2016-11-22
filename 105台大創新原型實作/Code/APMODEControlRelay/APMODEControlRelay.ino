@@ -3,7 +3,7 @@
 #define Turnon HIGH
 #define Turnoff LOW
 
-char ssid[] = "Ameba";  //Set the AP's SSID
+char ssid[] = "NQU_TSAO";  //Set the AP's SSID
 char pass[] = "12345678";     //Set the AP's password
 char channel[] = "1";         //Set the AP's channel
 int status = WL_IDLE_STATUS;     // the Wifi radio's status

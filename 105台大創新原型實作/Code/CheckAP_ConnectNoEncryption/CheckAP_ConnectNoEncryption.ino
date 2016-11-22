@@ -1,26 +1,49 @@
 #include <WiFi.h>
 uint8_t MacData[6];
 char ssid[] = "PM25";      // your network SSID (name)
-char pass[] = "qq12345678";     // your network password
-
-
 IPAddress  Meip ,Megateway ,Mesubnet ;
 String MacAddress ;
 int status = WL_IDLE_STATUS;
 
-
 void setup() {
-    MacAddress = GetWifiMac() ; // get MacAddress
-    ShowMac() ;       //Show Mac Address
- 
+  //Initialize serial and wait for port to open:
+  Serial.begin(9600);
+  while (!Serial) {
+    ; // wait for serial port to connect. Needed for native USB port only
+  }
+
+  // check for the presence of the shield:
+  if (WiFi.status() == WL_NO_SHIELD) {
+    Serial.println("WiFi shield not present");
+    // don't continue:
+    while (true);
+  }
+
+  String fv = WiFi.firmwareVersion();
+  if (fv != "1.1.0") {
+    Serial.println("Please upgrade the firmware");
+  }
+
+  // attempt to connect to Wifi network:
+  while (status != WL_CONNECTED) {
+    Serial.print("Attempting to connect to open SSID: ");
+    Serial.println(ssid);
+    status = WiFi.begin(ssid);
+
+    // wait 10 seconds for connection:
+    delay(10000);
+  }
+
+  // you're connected now, so print out the data:
+  Serial.print("You're connected to the network");
+  MacAddress = GetWifiMac() ;
+    ShowMac() ;
         initializeWiFi();
         printWifiData() ;
 }
 
-void loop() { // run over and over
-  
+void loop() {
 }
-
 void ShowMac()
 {
   
@@ -142,8 +165,7 @@ void initializeWiFi() {
     Serial.print("Attempting to connect to SSID: ");
     Serial.println(ssid);
     // Connect to WPA/WPA2 network. Change this line if using open or WEP network:
-    status = WiFi.begin(ssid, pass);
-  //   status = WiFi.begin(ssid);
+      status = WiFi.begin(ssid);
 
     // wait 10 seconds for connection:
     delay(10000);
@@ -153,5 +175,4 @@ void initializeWiFi() {
   Serial.print("\n") ;
   
 }
-
 
