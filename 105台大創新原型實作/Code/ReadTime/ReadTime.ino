@@ -6,23 +6,10 @@ RTC_DS1307 RTC;
 
 
 
-void setup() {
-    Serial.begin(9600);
-  initRTC() ;
-
-}
-
-void loop() {
-    Serial.print("Now Data and Time is :") ;
-    Serial.print(ShowDateTime()) ;
-    Serial.print("\n") ;
-    delay(1000) ;
-}
-
 
 void initRTC()
 {
-     Wire.begin();
+     Wire1.begin();
     RTC.begin();
   if (! RTC.isrunning()) {
     Serial.println("RTC is NOT running!");
@@ -88,5 +75,18 @@ String  print4digits(int number) {
   return ttt ;
 }
 
+
+void setup() {
+    Serial.begin(9600);
+  initRTC() ;
+
+}
+
+void loop() {
+    Serial.print("Now Data and Time is :") ;
+    Serial.print(ShowDateTime()) ;
+    Serial.print("\n") ;
+    delay(1000) ;
+}
 
 
