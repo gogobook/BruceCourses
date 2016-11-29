@@ -3,7 +3,29 @@
 
 #include "RTClib.h"
 RTC_DS1307 RTC;
+void initRTC() ;
+String ShowDateTime() ;
+String  StrDate() ;
+String  StringDate(int yyy,int mmm,int ddd) ;
+String  StrTime() ;
+String  StringTime(int hhh,int mmm,int sss) ;
+String  print2digits(int number) ;
+String  print4digits(int number) ;
 
+
+
+void setup() {
+    Serial.begin(9600);
+  initRTC() ;
+
+}
+
+void loop() {
+    Serial.print("Now Data and Time is :") ;
+    Serial.print(ShowDateTime()) ;
+    Serial.print("\n") ;
+    delay(1000) ;
+}
 
 
 
@@ -75,18 +97,5 @@ String  print4digits(int number) {
   return ttt ;
 }
 
-
-void setup() {
-    Serial.begin(9600);
-  initRTC() ;
-
-}
-
-void loop() {
-    Serial.print("Now Data and Time is :") ;
-    Serial.print(ShowDateTime()) ;
-    Serial.print("\n") ;
-    delay(1000) ;
-}
 
 
