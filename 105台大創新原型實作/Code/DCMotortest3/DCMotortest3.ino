@@ -11,8 +11,8 @@ void Motor1Forward();
 void Motor2Forward();
 void Motor1Backward();
 void Motor1Backward();
-void ControlMotor1Speed(int Sp)
-void ControlMotor2Speed(int Sp)
+void ControlMotor1Speed(int Sp) ;
+void ControlMotor2Speed(int Sp) ;
 
  
  void setup()
@@ -26,12 +26,12 @@ Serial.println("program start here ");
  void loop()
  {
        ControlMotor1Speed(250) ;
-       Contro2Motor1Speed(250) ;
+       ControlMotor2Speed(250) ;
        Motor1Forward();
        Motor2Forward();
         delay(3000);
        ControlMotor1Speed(100) ;
-       Contro2Motor1Speed(100) ;
+       ControlMotor2Speed(100) ;
        Motor1Backward();
        Motor1Backward();
         delay(3000);
