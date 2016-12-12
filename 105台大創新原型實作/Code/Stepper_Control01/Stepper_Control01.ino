@@ -15,16 +15,18 @@
 AccelStepper mystepper(1, pinStep, pinDirection);
 void setup()
 {  
-  pinMode(pinStep,OUTPUT) ;
-  pinMode(pinDirection,OUTPUT) ;
-  mystepper.setMaxSpeed(300);
- mystepper.setSpeed(200);
-  
 }
 
 void loop()
 {
-	mystepper.move(+10);
-  mystepper.setSpeed(200);
+    if (mystepper.distanceToGo() == 0)
+    {
+	// Random change to speed, position and acceleration
+	// Make sure we dont get 0 speed or accelerations
+	delay(1000);
+	mystepper.moveTo(rand() % 200);
+	mystepper.setMaxSpeed((rand() % 200) + 1);
+	mystepper.setAcceleration((rand() % 200) + 1);
+    }
     mystepper.run();
 }
