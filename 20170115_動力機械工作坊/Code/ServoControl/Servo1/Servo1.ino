@@ -5,22 +5,13 @@
 
 Servo myservo1;
 Servo myservo2;
+// lib declare
+void InitServo(Servo myservo, int Pins) ;
+void ServotoZero(Servo myservo) ;
+void ServoMove(Servo myservo, int angle)  ;
 
-void InitServo(Servo myservo, int Pins)
-{
-    myservo.attach(Pins) ;
-}
 
-void ServotoZero(Servo myservo)
-{
-    myservo.write(90) ;
-}
-
-void ServoMove(Servo myservo, int angle)
-{
-    myservo.write(angle) ;
-}
-
+//main
 
 void setup()  
 {
@@ -37,6 +28,27 @@ void setup()
 void loop()
   {
 
+}
+
+
+
+// following is user defined function
+
+
+
+void InitServo(Servo myservo, int Pins)
+{
+    myservo.attach(Pins) ;
+}
+
+void ServotoZero(Servo myservo)
+{
+    myservo.write(90) ;
+}
+
+void ServoMove(Servo myservo, int angle)
+{
+    myservo.write(angle) ;
 }
 
 
